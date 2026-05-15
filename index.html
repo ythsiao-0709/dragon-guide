@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>龍王機制互動攻略</title>
+
+<style>
+:root{
+  --card:#111827; --text:#e5e7eb; --sub:#94a3b8; --blue:#3b82f6;
+}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(to bottom,#020617,#0f172a);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft JhengHei",sans-serif;}
+.hero{padding:56px 24px 32px;text-align:center}
+.hero h1{margin:0;font-size:48px}
+.hero p{color:var(--sub);margin-top:12px}
+.timeline{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.timeline .item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:12px 18px;border-radius:999px}
+.container{width:min(1400px,100%);margin:auto;padding:24px}
+.phase{margin-bottom:32px;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)}
+.phase-header{padding:28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.phase-header h2{margin:0;font-size:36px}.phase-header p{margin:8px 0 0;color:var(--sub)}
+.badge{padding:10px 16px;border-radius:999px;font-weight:bold}.left{background:#1d4ed8}.right{background:#6d28d9}.body{background:#92400e}
+.content{padding:24px}.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.skill{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:18px;cursor:pointer;transition:.2s}
+.skill:hover{transform:translateY(-4px);border-color:var(--blue)}.skill h3{margin-top:0;margin-bottom:10px}.skill small{color:var(--sub)}
+.quick-box{margin-top:20px;padding:18px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}.quick-box h4{margin-top:0}
+.rule-table{width:100%;border-collapse:collapse;margin:16px 0;border-radius:14px;overflow:hidden}.rule-table th,.rule-table td{border:1px solid rgba(255,255,255,.12);padding:12px;text-align:left;vertical-align:top}.rule-table th{background:rgba(59,130,246,.18)}.rule-table td{background:rgba(255,255,255,.03)}
+.alert{margin-top:16px;border:1px solid rgba(245,158,11,.5);background:rgba(245,158,11,.12);color:#fde68a;border-radius:16px;padding:14px 16px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;padding:20px;z-index:999}.modal.show{display:flex}
+.modal-content{width:min(900px,100%);max-height:90vh;overflow:auto;background:#0f172a;border-radius:24px;border:1px solid rgba(255,255,255,.1);padding:32px}
+.close{float:right;cursor:pointer;background:#ef4444;border:none;color:white;width:40px;height:40px;border-radius:999px;font-size:18px}
+.tag{display:inline-block;margin-right:8px;margin-bottom:8px;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:bold}
+.red{background:#b91c1c}.blue{background:#1d4ed8}.purple{background:#6d28d9}.orange{background:#c2410c}.green{background:#047857}
+ul,ol{line-height:1.9}.footer{padding:48px 24px;text-align:center;color:var(--sub)}
+@media (max-width:768px){.hero h1{font-size:34px}.phase-header h2{font-size:28px}.rule-table{font-size:14px}}
+</style>
+</head>
+
+<body>
+<div class="hero">
+  <h1>🐉 龍王機制互動攻略</h1>
+  <p>離線版互動網站｜點擊技能卡查看詳細機制與應對方式</p>
+  <div class="timeline"><div class="item">① 左頭階段</div><div class="item">② 右頭階段</div><div class="item">③ 本體階段</div><div class="item">④ 額外機制</div></div>
+</div>
+
+<div class="container">
+
+<section class="phase">
+  <div class="phase-header"><div><h2>❄️ 左頭階段</h2><p>目標：擊破左頭 → 進入右頭階段</p></div><div class="badge left">血量：100% → 0%</div></div>
+  <div class="content">
+    <div class="skill-grid">
+      <div class="skill" onclick="showSkill('物免 / 魔免', `
+        <span class='tag red'>輸出限制</span>
+        <ul><li>物免：物理攻擊全部 MISS</li><li>魔免：魔法攻擊全部 MISS</li></ul>
+        <p><b>注意：</b>物免與魔免不會同時發生。</p>
+        <h3>應對</h3><ul><li>對應職業停止輸出</li><li>物理職可去掛繩，避免吃到減攻速</li></ul>` )"><h3>物免 / 魔免</h3><small>物理或魔法攻擊 MISS</small></div>
+
+      <div class="skill" onclick="showSkill('魅惑', `
+        <span class='tag purple'>強制控制</span><ul><li>不停跳躍並向左走</li><li>除了楓葉淨化以外幾乎不能操作</li><li>寵物不會補水，也不能吃櫻桃派</li></ul>
+        <h3>應對</h3><ul><li>安排固定吃魅惑的人</li><li>魅惑手遠離人群</li><li>可用聖盾護鎧擋</li><li><b>煙霧彈內不會被魅惑</b></li></ul>` )"><h3>魅惑</h3><small>強制跳躍與左移，煙內不會被魅惑</small></div>
+
+      <div class="skill" onclick="showSkill('冰地板', `
+        <span class='tag blue'>蝸牛</span><p>地板冒冰，命中會疊蝸牛 Buff。</p><ul><li>減移速</li><li>減攻速</li></ul>
+        <h3>應對</h3><ul><li>用跳躍躲避</li></ul><p>箭神也會被減攻速，只有法師不受影響。</p>` )"><h3>冰地板</h3><small>踩到會疊蝸牛</small></div>
+
+      <div class="skill" onclick="showSkill('冰刺', `
+        <span class='tag orange'>鎖技</span><p>被冰刺命中會鎖技能。</p><h3>應對</h3><ul><li>使用萬能藥</li></ul>` )"><h3>冰刺</h3><small>命中後鎖技能</small></div>
+    </div>
+
+    <div class="quick-box"><h4>📌 階段重點</h4><ul><li><b>左右頭階段的龍頭有碰撞傷害，約一萬以上</b></li><li>物免 / 魔免需停止對應輸出</li><li>冰地板盡量跳躍閃避</li><li>魅惑手遠離隊友，煙霧彈內不會被魅惑</li></ul></div>
+  </div>
+</section>
+
+<section class="phase">
+  <div class="phase-header"><div><h2>⚡ 右頭階段</h2><p>目標：擊破右頭 → 進入本體階段</p></div><div class="badge right">血量：100% → 0%</div></div>
+  <div class="content">
+    <div class="skill-grid">
+      <div class="skill" onclick="showSkill('物免 / 魔免', `<span class='tag red'>輸出限制</span><ul><li>物免：物理攻擊全部 MISS</li><li>魔免：魔法攻擊全部 MISS</li></ul><p><b>注意：</b>物免與魔免不會同時發生。</p>`)"><h3>物免 / 魔免</h3><small>物理或魔法攻擊 MISS</small></div>
+
+      <div class="skill" onclick="showSkill('魅惑', `<span class='tag purple'>強制控制</span><p>不停跳躍並向左移動。</p><h3>應對</h3><ul><li>安排固定吃魅惑的人</li><li>魅惑手遠離人群</li><li><b>煙霧彈內不會被魅惑</b></li></ul>`)"><h3>魅惑</h3><small>強制跳躍與左移，煙內不會被魅惑</small></div>
+
+      <div class="skill" onclick="showSkill('電弧', `<span class='tag red'>可導電</span><p>地板光點 1 秒後爆炸。</p><ul><li>會串電</li><li>3 人以上可能連鎖串電</li><li>吃第一段傷害的人血量越厚，串出去的傷害越痛，多的一次可到四千多</li></ul><h3>應對</h3><ul><li>保持分散站位</li><li>平台邊緣是無敵點</li><li>二樓中電不要左右亂跑，直接下跳並拉開距離</li><li>避免撞到龍頭，左右頭階段龍頭碰撞傷害約一萬以上</li></ul>`)"><h3>電弧</h3><small>可導電，地板連鎖傷害</small></div>
+
+      <div class="skill" onclick="showSkill('電石', `<span class='tag red'>可導電</span><ul><li>地板出現石頭</li><li>踩到後暈眩並吃到電擊</li><li>與電弧一樣會串電</li></ul><h3>電層機制</h3><ul><li>吃第一段電的人會獲得 1 層電</li><li>每層電會給予增傷</li><li>10 層增傷最大</li><li>12 層直接死亡</li></ul>`)"><h3>電石</h3><small>可導電，踩石頭會暈眩</small></div>
+    </div>
+    <div class="quick-box"><h4>📌 階段重點</h4><ul><li><b>左右頭階段的龍頭有碰撞傷害，約一萬以上</b></li><li>全員保持距離，避免多人串電</li><li>吃第一段傷害的人血越厚，串出去越痛</li><li>煙霧彈內不會被魅惑</li></ul></div>
+  </div>
+</section>
+
+<section class="phase">
+  <div class="phase-header"><div><h2>🔥 本體階段</h2><p>目標：處理多部位機制，擊破本體</p></div><div class="badge body">多部位戰鬥</div></div>
+  <div class="content">
+    <div class="skill-grid">
+      <div class="skill" onclick="showSkill('尾巴', `<span class='tag red'>高危險</span><ul><li>甩尾傷害約 18000</li><li>尾巴區域基本上不能站人</li><li>毒霧通常不致命，但尾巴區域本來就不建議停留</li></ul><h3>應對</h3><ul><li>尾巴不要站人</li></ul>`)"><h3>尾巴</h3><small>甩尾秒殺</small></div>
+
+      <div class="skill" onclick="showSkill('雙腳', `<span class='tag red'>可導電</span><p>雙腳按固定順序施放踩踏：</p><ol><li>右輕</li><li>右重</li><li>左輕</li><li>左重</li></ol><ul><li>輕踩：攻擊地板玩家</li><li>重踩：攻擊平台玩家</li><li>左右腳分別攻擊左右兩邊玩家</li></ul>`)"><h3>雙腳</h3><small>可導電，固定順序踩踏</small></div>
+
+      <div class="skill" onclick="showSkill('翅膀：召喚翼龍', `
+        <span class='tag red'>核心機制</span><span class='tag orange'>血量反轉</span>
+        <p>翅膀會從左側上、中、下召喚紅、藍、黑三隻翼龍。翼龍會往右移動，直到抵達右下火盃。</p>
+        <h3>翼龍基本規則</h3><ul><li>翼龍血量約 200 萬</li><li>可以被控制、拉住或定身</li><li>一隻翼龍進入火盃後，其他翼龍會直接消失</li></ul>
+        <h3>火盃判定：翅膀高血量</h3>
+        <table class='rule-table'><thead><tr><th>進杯狀況</th><th>結果</th></tr></thead><tbody>
+          <tr><td>紅翼龍進紅火盃</td><td><b>全圖殺</b></td></tr>
+          <tr><td>藍翼龍進藍火盃</td><td><b>全圖殺</b></td></tr>
+          <tr><td>黑翼龍進白火盃</td><td><b>全圖殺</b></td></tr>
+          <tr><td>紅翼龍進藍火盃或白火盃<br>藍翼龍進紅火盃或白火盃<br>黑翼龍進紅火盃或藍火盃</td><td><b>清除狀態</b><br>可清蝸牛、電、流血等狀態</td></tr>
+        </tbody></table>
+        <h3>火盃判定：翅膀低血量後</h3>
+        <table class='rule-table'><thead><tr><th>進杯狀況</th><th>結果</th></tr></thead><tbody>
+          <tr><td>紅翼龍進紅火盃</td><td><b>清除狀態</b></td></tr>
+          <tr><td>藍翼龍進藍火盃</td><td><b>清除狀態</b></td></tr>
+          <tr><td>黑翼龍進白火盃</td><td><b>清除狀態</b></td></tr>
+          <tr><td>紅翼龍進藍火盃或白火盃<br>藍翼龍進紅火盃或白火盃<br>黑翼龍進紅火盃或藍火盃</td><td><b>全圖殺</b></td></tr>
+        </tbody></table>
+        <div class='alert'>畫面出現明顯黃字提示後，代表火盃判定已反轉。一般最多清一次狀態；若放龍兩次以上，通常代表傷害不足，通關率會大幅下降。</div>
+        <h3>應對</h3><ul><li>用強控拉住或定身翼龍</li><li>確認目前是高血量規則還是低血量反轉規則</li><li>不要為少數人隨意放龍</li></ul>
+      `)"><h3>翅膀：召喚翼龍</h3><small>火盃判定依翅膀血量反轉</small></div>
+
+      <div class="skill" onclick="showSkill('翅膀：振翅', `<span class='tag blue'>擊退</span><p>震飛平台上的玩家到兩側。</p><h3>應對</h3><ul><li>快速回到原位</li></ul>`)"><h3>翅膀：振翅</h3><small>震飛平台玩家</small></div>
+
+      <div class="skill" onclick="showSkill('左手 / 右手', `
+        <span class='tag red'>可導電</span><span class='tag purple'>魅惑</span><span class='tag orange'>消技</span>
+        <h3>共通技能</h3><ul><li>紅雷：可導電，命中 +2 電、+2 流血</li><li>消技：清除半邊玩家所有 Buff，約 90～100 秒一次</li><li>魅惑：給予遠征隊排名最前玩家魅惑，煙霧彈內不會被魅惑</li></ul>
+        <h3>差異</h3><ul><li>左手：有冰凍，給予 1 層蝸牛，可用無敵幀躲避</li><li>右手：有紫白光負面狀態，範圍包含右側與中間</li></ul>
+        <h3>應對</h3><ul><li>消技可依約 90～100 秒節奏預測</li><li>魅惑可透過跳躍或左右走閃避</li><li>多數負面狀態可用萬能藥解除，但鎖水、治療反轉除外</li></ul>
+      `)"><h3>左手 / 右手</h3><small>紅雷可導電，消技、魅惑、負面狀態</small></div>
+
+      <div class="skill" onclick="showSkill('本體左頭', `
+        <span class='tag blue'>冰系</span><span class='tag red'>可導電</span>
+        <ul><li>物免：物理攻擊 MISS</li><li>魔免：魔法攻擊 MISS</li><li>冰錐：<b>可導電</b>，命中 +2 蝸牛，可跳躍或左右移動躲避</li><li>冰地板：<b>可導電</b>，命中 +4 蝸牛，範圍大，通常用跳躍躲避</li></ul>
+      `)"><h3>本體左頭</h3><small>冰錐、冰地板皆可導電</small></div>
+
+      <div class="skill" onclick="showSkill('本體右頭', `
+        <span class='tag purple'>右頭 50%</span><span class='tag red'>可導電</span>
+        <ul><li>物免：物理攻擊 MISS</li><li>魔免：魔法攻擊 MISS</li><li>電石：可導電</li><li>大電：可導電，右頭 50% 時，右側連續釋放 8 次，約 80 秒，命中 +3 電</li></ul>
+        <h3>大電應對</h3><ul><li>放煙</li><li>右下避難</li><li>左側空間足夠時可往左側避難</li></ul>
+      `)"><h3>本體右頭</h3><small>電石、大電皆可導電</small></div>
+
+      <div class="skill" onclick="showSkill('本體中頭', `
+        <span class='tag red'>中頭 50%</span><span class='tag red'>可導電</span>
+        <ul><li>物免：物理攻擊 MISS</li><li>魔免：魔法攻擊 MISS</li><li>紅咬：可導電，命中 +1 流血，可跳躍或左右移動閃避</li><li>噴火：可導電，超長前搖後噴火，地板火焰可清除所有蝸牛 Buff</li><li>黑色鎖鏈：可導電，中頭 50% 以下開始，約 30 秒一次，命中 +4 流血</li></ul>
+        <h3>黑色鎖鏈應對</h3><ul><li>反應要求高，需要靠熟悉節奏與肌肉記憶</li><li>不想反應時，可在時間接近時到邊緣避難</li><li>黑色鎖鏈優先序低於物魔免與噴火，常會被其他招式延後</li></ul>
+      `)"><h3>本體中頭</h3><small>紅咬、噴火、黑色鎖鏈皆可導電</small></div>
+    </div>
+
+    <div class="quick-box"><h4>📌 本體階段重點</h4><ul><li>尾巴不要站人，甩尾傷害極高</li><li>翅膀火盃判定會依血量反轉，看到黃字提示後要改判斷</li><li>右頭 50% 大電與中頭 50% 黑色鎖鏈是高危險時間點</li><li>導電、流血、蝸牛層數要持續注意</li><li>尾巴以外部位先死亡會觸發一次全圖殺</li></ul></div>
+  </div>
+</section>
+
+<section class="phase">
+  <div class="phase-header"><div><h2>📌 額外機制</h2><p>所有階段都可能影響通關率的共同規則</p></div><div class="badge body">共通規則</div></div>
+  <div class="content">
+    <div class="skill-grid">
+      <div class="skill" onclick="showSkill('導電機制', `
+        <span class='tag red'>共通危險</span>
+        <p>標示可導電的技能，除了第一段傷害外，附近有人會把電流傳出去。</p>
+        <h3>可導電技能清單</h3>
+        <ul>
+          <li>右頭階段：電弧、電石</li>
+          <li>本體雙腳：右輕、右重、左輕、左重</li>
+          <li>本體左手 / 右手：紅雷</li>
+          <li>本體左頭：冰錐、冰地板</li>
+          <li>本體右頭：電石、大電</li>
+          <li>本體中頭：紅咬、噴火、黑色鎖鏈</li>
+        </ul>
+        <h3>導電規則</h3>
+        <ul>
+          <li>3 人以上容易串電</li>
+          <li>串電無視無敵幀</li>
+          <li><b>吃第一段傷害的人的血量越厚，串出去的傷害越痛，多的一次可以到四千多</b></li>
+          <li>血量高者可快速連按補血避免死亡</li>
+        </ul>
+      `)"><h3>導電機制</h3><small>列出所有可導電技能與傷害規則</small></div>
+
+      <div class="skill" onclick="showSkill('狀態層數：電、流血、蝸牛', `
+        <span class='tag purple'>狀態說明</span>
+        <h3>電</h3><ul><li>吃第一段電的人會獲得電層</li><li>每層提高傷害</li><li>10 層達到最大增傷</li><li>12 層會死亡</li><li>9 電吃到 +3 電、10 電吃到 +2 或 +3 電時可能不會立刻死，但再吃一次電一樣會死</li></ul>
+        <h3>流血</h3><ul><li>每隔幾秒扣血，直到死亡</li><li>層數越高扣越多</li><li>一般 11 層以上非常危險，只有法師或血厚職業比較來得及補回來</li></ul>
+        <h3>蝸牛</h3><ul><li>減少移動速度與攻擊速度</li><li>左頭階段的蝸牛不會帶到右頭階段</li><li>本體中頭噴火後殘留的火焰可清除所有蝸牛 Buff</li><li>翼龍火盃清狀態時也可清除蝸牛、電、流血等狀態</li></ul>
+      `)"><h3>狀態層數說明</h3><small>電、流血、蝸牛</small></div>
+
+      <div class="skill" onclick="showSkill('部位死亡機制', `<span class='tag red'>全圖殺</span><ul><li>尾巴以外的部位先死亡會觸發全圖殺</li><li>無法預知，無反應時間</li><li>觸發後再打掉其他部位不會再次觸發</li></ul>`)"><h3>部位死亡機制</h3><small>尾巴以外部位先死會全圖殺</small></div>
+
+      <div class="skill" onclick="showSkill('遠征隊名單順序', `<span class='tag purple'>魅惑判定</span><p>遠征隊名單順序由進入遠征隊地圖的順序決定。</p><ul><li>此順序會影響誰優先吃魅惑</li><li>可在開團時安排固定吃魅惑的人</li><li>煙霧彈內不會被魅惑，可作為應對選項</li></ul>`)"><h3>遠征隊名單順序</h3><small>決定魅惑優先目標</small></div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div class="footer">龍王互動攻略離線版｜可直接打開 index.html 使用｜更新：碰撞傷害、煙霧彈防魅惑、導電技能清單、狀態層數、翅膀血量反轉細節</div>
+
+<div class="modal" id="modal"><div class="modal-content"><button class="close" onclick="closeModal()">✕</button><div id="modal-body"></div></div></div>
+
+<script>
+function showSkill(title, content){
+  document.getElementById("modal").classList.add("show");
+  document.getElementById("modal-body").innerHTML = `<h1>${title}</h1>${content}`;
+}
+function closeModal(){document.getElementById("modal").classList.remove("show");}
+window.addEventListener("click", e=>{if(e.target.id==="modal") closeModal();});
+window.addEventListener("keydown", e=>{if(e.key==="Escape") closeModal();});
+</script>
+</body>
+</html>
